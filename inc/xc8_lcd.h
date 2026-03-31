@@ -25,20 +25,14 @@ typedef struct
 extern lcd_dev_t lcddev;
 
 // Rotation:
-// 0: rotate 0
-// 1: rotate: 90
+// 0: rotate:   0
+// 1: rotate:  90
 // 2: rotate: 180
-// 3: rotate 270
-#define ROTATION 3
+// 3: rotate: 270
+#define GO_HORIZONTAL 0
 
-#if (ROTATION == 0 || ROTATION == 2)
 #define LCD_W 240
 #define LCD_H 320
-#endif
-#else
-#define LCD_W 320
-#define LCD_H 240
-#endif 
 
 // Color definitions
 #define WHITE       0xFFFF

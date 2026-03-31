@@ -22,6 +22,7 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>src/main.c</itemPath>
+      <itemPath>src/xc8_lcd.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
