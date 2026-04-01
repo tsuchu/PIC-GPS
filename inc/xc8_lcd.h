@@ -4,8 +4,9 @@
 #include <stdint.h>
 
 // shorthand notation for 8-bit and 16-bit unsigned integers
-typedef uint8_t u8;
-typedef uint16_t u16;
+typedef unsigned char  u8;
+typedef unsigned short u16;
+typedef unsigned int   u32;
 
 typedef struct
 {
@@ -29,7 +30,7 @@ extern lcd_dev_t lcddev;
 // 1: rotate:  90
 // 2: rotate: 180
 // 3: rotate: 270
-#define GO_HORIZONTAL 0
+#define USE_HORIZONTAL 0
 
 #define LCD_W 240
 #define LCD_H 320
