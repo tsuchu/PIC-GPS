@@ -7,6 +7,7 @@
       <itemPath>inc/pic_pins.h</itemPath>
       <itemPath>inc/interrupt_manager.h</itemPath>
       <itemPath>inc/xc8_lcd.h</itemPath>
+      <itemPath>inc/pic18f47q84_setup.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -162,6 +163,16 @@
         <property key="program-the-device-with-default-config-words" value="false"/>
         <property key="remove-unused-sections" value="true"/>
       </HI-TECH-LINK>
+      <PK5Tool>
+        <property key="memories.programmemory.ranges" value="0-1ffff"/>
+        <property key="programmerToGoFilePath"
+                  value="/Users/abilbro/Documents/School/ECE47100/PIC-GPS/debug/default/default_ptg"/>
+      </PK5Tool>
+      <Tool>
+        <property key="memories.programmemory.ranges" value="0-1ffff"/>
+        <property key="programmerToGoFilePath"
+                  value="/Users/abilbro/Documents/School/ECE47100/PIC-GPS/debug/default/default_ptg"/>
+      </Tool>
       <XC8-CO>
         <property key="coverage-enable" value=""/>
         <property key="stack-guidance" value="false"/>

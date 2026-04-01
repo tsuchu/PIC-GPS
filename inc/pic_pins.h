@@ -14,9 +14,9 @@
 #define UART_RX_PIN
 #define UART_TX_PIN
 
-#define SPI_SCK_PIN 34 // RB1
+#define SPI_SCK_PIN 1 // RB1
 #define SPI_SDI_PIN
-#define SPI_SDO_PIN 35 // RB2
+#define SPI_SDO_PIN 2 // RB2
 
 #define TFT_CS_PIN 5 // RB5
 #define TFT_DC_PIN 3 // RB3

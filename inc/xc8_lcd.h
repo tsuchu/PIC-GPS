@@ -44,6 +44,7 @@ extern lcd_dev_t lcddev;
 #define RED         0xF800
 #define MAGENTA     0xF81F
 #define GREEN       0x07E0
+#define LIME        0x07E0
 #define CYAN        0x7FFF
 #define BROWN       0XBC40
 #define BRRED       0XFC07

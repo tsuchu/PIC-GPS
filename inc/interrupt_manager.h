@@ -7,7 +7,7 @@
 /**
  * Peripheral ISRs
  */
-void SPI_ISR() {
+void TIMER0_ISR() {
     
 }
 
