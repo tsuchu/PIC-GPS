@@ -6,15 +6,13 @@
  */
 
 #include <xc.h>
-#include <math.h>
-#include "../inc/pic18f47q84_setup.h"
+#include "../inc/picgps_setup.h"
 #include "../inc/pic_pins.h"
 #include "../inc/xc8_lcd.h"
 
 void main(void) {
-    // stdio_init_all();
-
-    // init_spi_lcd();
+    pic_setup();
+    init_all();
 
     LCD_Setup();
     LCD_Clear(0x0000); // Clear the screen to black
@@ -56,7 +54,7 @@ void main(void) {
                 // d^2 = dx^2 + dy^2 (+ a fake softening factor to avoid collisions)
                 float dist_sq = dx * dx + dy * dy + SOFTENING;
                 // Newton's law of gravitation: F = G * m1 * m2 / d^2
-                float inv_dist_cubed = 1.0f / (dist_sq * sqrtf(dist_sq));
+                float inv_dist_cubed = 1.0f / (dist_sq * sqrt[dist_sq]);
                 
                 // Acceleration = Force / mass, but we multiply by mass to get the force directly
                 // so we can use it to update velocity directly.
