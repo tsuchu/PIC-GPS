@@ -24,8 +24,6 @@ static void tft_select(int val)
         while(SPI1CON2bits.BUSY);
         CS_HIGH;
     } else {
-        // If CS is already low, this is an error. Loop forever.
-        while((PORTB & (1 << TFT_CS_PIN)) == 0); 
         CS_LOW;
     }
 }
@@ -66,6 +64,7 @@ void LCD_WR_REG(u8 data)
     // Select register mode
     lcddev.reg_select(1);
     // Write data to SPI
+    SPI1TCNTL = 1;
     while (!(SPI1STATUSbits.TXBE));
     SPI1TXB = data;
 }
@@ -78,6 +77,7 @@ void LCD_WR_DATA(u8 data)
     // Set to data mode
     lcddev.reg_select(0);
     // Write data to SPI
+    SPI1TCNTL = 1;
     while (!(SPI1STATUSbits.TXBE));
     SPI1TXB = data;
 }
@@ -85,6 +85,7 @@ void LCD_WR_DATA(u8 data)
 // Write 16-bit data
 void LCD_WriteData16(u16 data)
 {
+    SPI1TCNTL = 2;
     while (!(SPI1STATUSbits.TXBE));
     SPI1TXB = data & 0xFF;
     while (!(SPI1STATUSbits.TXBE));
@@ -286,7 +287,6 @@ void LCD_Clear(u16 Color)
     lcddev.select(1);
     unsigned int i, m;
     LCD_SetWindow(0,0,lcddev.width-1,lcddev.height-1);
-    // LCD_WriteData16_Prepare();
     lcddev.reg_select(0);
     for(i = 0; i < lcddev.height; i++)
     {
@@ -295,7 +295,6 @@ void LCD_Clear(u16 Color)
             LCD_WriteData16(Color);
         }
     }
-    // LCD_WriteData16_End();
     lcddev.select(0);
 }
 

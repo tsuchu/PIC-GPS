@@ -7,7 +7,10 @@
 #pragma config CSWEN = ON
 #define _XTAL_FREQ 64000000
 
+#include <xc.h>
 #include "pic_pins.h"
+
+extern int contrast;
 
 void pic_setup() {
     OSCCON1bits.NDIV = 0x00;
@@ -21,9 +24,15 @@ void spi_init(void) {
     SPI1CON1bits.FST = 1;
     SPI1CON1bits.SSP = 1;
     SPI1CON1bits.SDOP = 0;
+    SPI1SSPPS = 0b011110;
+    
+    SPI1CLKbits.CLKSEL = 0x01;
+    SPI1BAUDbits.BAUD = 276; // Aim for 115200 Baud rate
+    
+    SPI1CON0bits.EN = 1;
 }
 
-void adc_init(void) {
+void adc_dma_init(void) {
     
 }
 
@@ -45,7 +54,7 @@ void i2c_init(void) {
 
 void init_all(void) {
     spi_init();
-    adc_init();
+    adc_dma_init();
     pwm_init();
     timer_init();
     uart_init();
