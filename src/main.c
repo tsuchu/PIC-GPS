@@ -13,11 +13,11 @@
 void main(void) {
     pic_setup();
     init_all();
-
+    __delay_ms(2000);
+    
     LCD_Setup();
     LCD_Clear(0x0000); // Clear the screen to black
 
-    #ifndef ANIMATION
     #define N_BODIES   3      // Number of bodies in the simulation
     #define G          12.0f  // Gravitational constant
     #define DT         0.01f  // Simulation time step
@@ -54,7 +54,7 @@ void main(void) {
                 // d^2 = dx^2 + dy^2 (+ a fake softening factor to avoid collisions)
                 float dist_sq = dx * dx + dy * dy + SOFTENING;
                 // Newton's law of gravitation: F = G * m1 * m2 / d^2
-                float inv_dist_cubed = 1.0f / (dist_sq * sqrt[dist_sq]);
+                float inv_dist_cubed = 1.0f / (dist_sq * sqrt(dist_sq));
                 
                 // Acceleration = Force / mass, but we multiply by mass to get the force directly
                 // so we can use it to update velocity directly.

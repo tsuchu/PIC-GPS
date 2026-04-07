@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=src/main.c src/xc8_lcd.c
+SOURCEFILES_QUOTED_IF_SPACED=src/main.c src/xc8_lcd.c src/picgps_setup.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/src/main.p1 ${OBJECTDIR}/src/xc8_lcd.p1
-POSSIBLE_DEPFILES=${OBJECTDIR}/src/main.p1.d ${OBJECTDIR}/src/xc8_lcd.p1.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/src/main.p1 ${OBJECTDIR}/src/xc8_lcd.p1 ${OBJECTDIR}/src/picgps_setup.p1
+POSSIBLE_DEPFILES=${OBJECTDIR}/src/main.p1.d ${OBJECTDIR}/src/xc8_lcd.p1.d ${OBJECTDIR}/src/picgps_setup.p1.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/src/main.p1 ${OBJECTDIR}/src/xc8_lcd.p1
+OBJECTFILES=${OBJECTDIR}/src/main.p1 ${OBJECTDIR}/src/xc8_lcd.p1 ${OBJECTDIR}/src/picgps_setup.p1
 
 # Source Files
-SOURCEFILES=src/main.c src/xc8_lcd.c
+SOURCEFILES=src/main.c src/xc8_lcd.c src/picgps_setup.c
 
 
 
@@ -104,6 +104,14 @@ ${OBJECTDIR}/src/xc8_lcd.p1: src/xc8_lcd.c  nbproject/Makefile-${CND_CONF}.mk
 	@-${MV} ${OBJECTDIR}/src/xc8_lcd.d ${OBJECTDIR}/src/xc8_lcd.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/xc8_lcd.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
+${OBJECTDIR}/src/picgps_setup.p1: src/picgps_setup.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/picgps_setup.p1.d 
+	@${RM} ${OBJECTDIR}/src/picgps_setup.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c  -D__DEBUG=1  -mdebugger=pickit5   -mdfp="${DFP_DIR}/xc8"  -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/src/picgps_setup.p1 src/picgps_setup.c 
+	@-${MV} ${OBJECTDIR}/src/picgps_setup.d ${OBJECTDIR}/src/picgps_setup.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/src/picgps_setup.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
 else
 ${OBJECTDIR}/src/main.p1: src/main.c  nbproject/Makefile-${CND_CONF}.mk 
 	@${MKDIR} "${OBJECTDIR}/src" 
@@ -120,6 +128,14 @@ ${OBJECTDIR}/src/xc8_lcd.p1: src/xc8_lcd.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/src/xc8_lcd.p1 src/xc8_lcd.c 
 	@-${MV} ${OBJECTDIR}/src/xc8_lcd.d ${OBJECTDIR}/src/xc8_lcd.p1.d 
 	@${FIXDEPS} ${OBJECTDIR}/src/xc8_lcd.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
+	
+${OBJECTDIR}/src/picgps_setup.p1: src/picgps_setup.c  nbproject/Makefile-${CND_CONF}.mk 
+	@${MKDIR} "${OBJECTDIR}/src" 
+	@${RM} ${OBJECTDIR}/src/picgps_setup.p1.d 
+	@${RM} ${OBJECTDIR}/src/picgps_setup.p1 
+	${MP_CC} $(MP_EXTRA_CC_PRE) -mcpu=$(MP_PROCESSOR_OPTION) -c   -mdfp="${DFP_DIR}/xc8"  -memi=wordwrite -O0 -fasmfile -maddrqual=ignore -xassembler-with-cpp -mwarn=-3 -Wa,-a -DXPRJ_default=$(CND_CONF)  -msummary=-psect,-class,+mem,-hex,-file  -ginhx32 -Wl,--data-init -mno-keep-startup -mno-download -mno-default-config-bits $(COMPARISON_BUILD)  -std=c99 -gdwarf-3 -mstack=compiled:auto:auto:auto     -o ${OBJECTDIR}/src/picgps_setup.p1 src/picgps_setup.c 
+	@-${MV} ${OBJECTDIR}/src/picgps_setup.d ${OBJECTDIR}/src/picgps_setup.p1.d 
+	@${FIXDEPS} ${OBJECTDIR}/src/picgps_setup.p1.d $(SILENT) -rsi ${MP_CC_DIR}../  
 	
 endif
 

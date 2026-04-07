@@ -6,7 +6,8 @@
             <file>file:/Users/abilbro/Documents/School/ECE47100/PIC-GPS/inc/pic_pins.h</file>
             <file>file:/Users/abilbro/Documents/School/ECE47100/PIC-GPS/src/xc8_lcd.c</file>
             <file>file:/Users/abilbro/Documents/School/ECE47100/PIC-GPS/src/main.c</file>
-            <file>file:/Users/abilbro/Documents/School/ECE47100/PIC-GPS/inc/pic18f47q84_setup.h</file>
+            <file>file:/Users/abilbro/Documents/School/ECE47100/PIC-GPS/src/picgps_setup.c</file>
+            <file>file:/Users/abilbro/Documents/School/ECE47100/PIC-GPS/inc/picgps_setup.h</file>
         </group>
     </open-files>
 </project-private>

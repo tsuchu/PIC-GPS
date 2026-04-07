@@ -56,3 +56,5 @@ dkms.conf
 
 # macos
 .DS_Store
+/build/
+/dist/

@@ -6,6 +6,7 @@
 #include <xc.h>
 #include "../inc/xc8_lcd.h"
 #include "../inc/pic_pins.h"
+#include "../inc/picgps_setup.h"
 
 lcd_dev_t lcddev;
 
