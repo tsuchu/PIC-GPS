@@ -10,6 +10,8 @@
 #include "../inc/pic_pins.h"
 #include "../inc/xc8_oled.h"
 
+int contrast = 0;
+
 void main(void) {
     pic_setup();
     init_all();
