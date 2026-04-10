@@ -14,6 +14,6 @@ void TIMER0_ISR() {
 /**
  * Interrupt handler
  */
-void __interrupt (high_priority) ISR() {
+void __interrupt ISR() {
     
 }

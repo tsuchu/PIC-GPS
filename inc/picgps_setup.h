@@ -1,15 +1,27 @@
-#pragma once
+#ifndef SETUP
+#define SETUP
 
-#pragma config RSTOSC = HFINTOSC_64MHZ
+#pragma config OSC = IRCIO
 #pragma config WDTEN = OFF
 #pragma config MCLRE = ON
-#pragma config LVP = ON
-#pragma config CSWEN = ON
-#define _XTAL_FREQ 64000000
+#pragma config LVP = OFF
+#define _XTAL_FREQ 4000000
 
 #include <xc.h>
 #include "pic_pins.h"
 
+<<<<<<< HEAD
+void pic_setup(void);
+void spi_init(void);
+void adc_init(void);
+void pwm_init(void);
+void timer_init(void);
+void uart_init(void);
+void i2c_init(void);
+void init_all(void);
+
+#endif
+=======
 extern int contrast;
 
 void pic_setup() {
@@ -71,3 +83,4 @@ float sqrt(float n) {
         diff = root - last;
     } while (diff > 0.00001 || diff < -0.00001);
 }
+>>>>>>> origin
