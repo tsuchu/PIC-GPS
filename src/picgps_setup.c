@@ -1,21 +1,37 @@
 #include <xc.h>
 #include "../inc/picgps_setup.h"
+#include "../inc/xc8_oled.h"
 
 void pic_setup() {
-    OSCCON1bits.NDIV = 0x00;
-    OSCTUNEbits.TUN  = 0x00;
+    OSCCON |= 0x60;
+    
+    INTCONbits.GIE  = 1;
+    INTCONbits.PEIE = 1;
 }
 
 void spi_init(void) {
-    LATB &= ~(SPI_SCK_PIN | SPI_SDO_PIN | TFT_DC_PIN | TFT_nRST_PIN | TFT_CS_PIN);
-    SPI1CON0bits.EN   = 0;
-    SPI1CON1bits.CKE  = 0;
-    SPI1CON1bits.CKP  = 0;
-    SPI1CON1bits.SSP  = 1;
-    SPI1CON1bits.SDOP = 0;
+    TRISDbits.RD0 = 0;
+    TRISDbits.RD1 = 0;
+    TRISDbits.RD3 = 0;
     
-    SPI1BAUD = 3332; // aim for 9600 baud rate
-    SPI1CON0bits.EN = 1;
+    LATDbits.LD0 = 1;
+    
+//    SSPSTAT = 0xC0;
+//    SSPCON  = 0x20;
+    
+//    PIE1bits.SSPIE = 1;
+    
+    __delay_ms(50);
+    oled_writeCMD(0x01); // Clear Display
+    __delay_ms(5);
+    oled_writeCMD(0x02); // Return Home
+    __delay_ms(5);
+    oled_writeCMD(0x06); // Entry Mode Set
+    __delay_ms(5);
+    oled_writeCMD(0x38); // Function Set
+    __delay_ms(5);
+    oled_writeCMD(0x0C); // Display ON
+    __delay_ms(5);
 }
 
 void adc_init(void) {
@@ -45,16 +61,4 @@ void init_all(void) {
     timer_init();
     uart_init();
     i2c_init();
-}
-
-// sqrt function to test the tft module
-float sqrt(float n) {
-    float root = n / 3, last, diff;
-    if (n <= 0) return 0;
-    do {
-        last = root;
-        root = (root + n / root) / 2;
-        diff = root - last;
-    } while (diff > 0.00001 || diff < -0.00001);
-    return root;
 }

@@ -1,10 +1,11 @@
 #ifndef SETUP
 #define SETUP
 
-#pragma config RSTOSC = HFINTOSC_64MHZ
-#pragma config LVP = ON
-#pragma config CSWEN = ON
-#define _XTAL_FREQ 64000000
+#pragma config OSC = IRCIO
+#pragma config WDTEN = OFF
+#pragma config MCLRE = ON
+#pragma config LVP = OFF
+#define _XTAL_FREQ 4000000
 
 #include "pic_pins.h"
 
@@ -16,6 +17,5 @@ void timer_init(void);
 void uart_init(void);
 void i2c_init(void);
 void init_all(void);
-// sqrt function to test the tft module
-float sqrt(float n);
+
 #endif

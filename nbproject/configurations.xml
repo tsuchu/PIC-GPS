@@ -6,8 +6,8 @@
                    projectFiles="true">
       <itemPath>inc/pic_pins.h</itemPath>
       <itemPath>inc/interrupt_manager.h</itemPath>
-      <itemPath>inc/xc8_lcd.h</itemPath>
       <itemPath>inc/picgps_setup.h</itemPath>
+      <itemPath>inc/xc8_oled.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -23,8 +23,8 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>src/main.c</itemPath>
-      <itemPath>src/xc8_lcd.c</itemPath>
       <itemPath>src/picgps_setup.c</itemPath>
+      <itemPath>src/xc8_oled.c</itemPath>
     </logicalFolder>
   </logicalFolder>
   <projectmakefile>Makefile</projectmakefile>
